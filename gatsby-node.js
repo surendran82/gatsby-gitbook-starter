@@ -3,6 +3,7 @@ const path = require('path');
 const startCase = require('lodash.startcase');
 const config = require('./config');
 
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   return new Promise((resolve, reject) => {
@@ -132,3 +133,26 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
   `);
 };
+
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
+exports.onCreateWebpackConfig = ({ stage, rules, loaders, plugins, actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      fallback: {
+        "process": require.resolve("process/browser")
+      }
+    },
+    module: {
+      
+      rules: [
+        {
+          test: /\.woff2$/,
+          use: [loaders.url({ limit: 0 })],
+        },
+      ],
+    },
+    plugins: [
+      new NodePolyfillPlugin()
+    ]
+  });
+}

@@ -9,3 +9,5 @@ export const onServiceWorkerUpdateReady = () => {
 }
 
 require('typeface-roboto');
+
+import './src/styles/global.css';

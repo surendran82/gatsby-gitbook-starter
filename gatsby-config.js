@@ -52,6 +52,7 @@ const plugins = [
   `gatsby-plugin-sass`,
   'gatsby-plugin-emotion',
   'gatsby-plugin-react-helmet',
+  `gatsby-plugin-postcss`,
   {
     resolve: 'gatsby-source-filesystem',
     options: {

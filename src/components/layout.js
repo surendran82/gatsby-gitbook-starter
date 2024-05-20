@@ -10,8 +10,11 @@ import RightSidebar from './rightSidebar';
 // import CloseIcon from '../globals/icons/Close';
 import OpenedSvg from './images/opened';
 
+
 import Header from './Header';
 // import { AnnouncementBanner } from './AnnouncementBanner';
+
+import { V3Footer, V3Header } from "hds-web";
 
 import usFlag from './images/us-flag.svg';
 import chinaFlag from './images/china-flag.svg';
@@ -569,6 +572,7 @@ const Layout = ({ children, location }) => {
             ) : null}
           </Wrapper>
         </MDXProvider>
+        {/* <V3Footer /> */}
       </ThemeProvider>
     </>
   );
